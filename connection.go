@@ -18,6 +18,11 @@ type Dialer interface {
 	DialTimeout(network, address string, timeout time.Duration) (net.Conn, error)
 }
 
+//DialerContext dial network connection from use context
+type DialerContext interface {
+	DialContext(ctx context.Context, network, address string) (net.Conn, error)
+}
+
 type defaultDialer struct {
 	d net.Dialer
 }
